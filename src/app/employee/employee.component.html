@@ -1,58 +1,96 @@
 <h3>Employee Masters</h3>
 
-<form (ngSubmit)="addEmployee(form)" #form="ngForm" >
+<form (ngSubmit)="addEmployee(form)" #form="ngForm">
   <div class="form-flex">
-    <div>
-      <label for="txtId">ID :</label>
-      <input type="text" id="txtId" name="id" [(ngModel)]="model.id" [ngModelOptions]="{standalone: true}"required /><br />
+    <div class="card flex justify-content-center">
+      <p-floatLabel>
+        <input type="text" id="txtId" name="id" pInputText [(ngModel)]="model.id" [ngModelOptions]="{standalone: true}" required /><br />
+        <label for="txtId">ID </label>
+      </p-floatLabel>
 
-      <label for="txtName">Name :</label>
-      <input type="text" id="txtName" name="name" [(ngModel)]="model.name" [ngModelOptions]="{standalone: true}"required /><br />
+      <p-floatLabel>
+        <input type="text" id="txtName" name="name" pInputText [(ngModel)]="model.name" [ngModelOptions]="{standalone: true}" required /><br />
+        <label for="txtName">Name </label>
+      </p-floatLabel>
 
-      <label for="txtAge">Age :</label>
-      <input type="number" id="txtAge" name="age" [(ngModel)]="model.age"[ngModelOptions]="{standalone: true}" required /><br />
+      <p-floatLabel>
+        <input pInputText type="number" id="txtAge" name="age" [(ngModel)]="model.age" [ngModelOptions]="{standalone: true}" required /><br />
+        <label for="txtAge">Age </label>
+      </p-floatLabel>
 
-      <label for="txtEmail">Email :</label>
-      <input type="email" id="txtEmail" name="email" [(ngModel)]="model.email"[ngModelOptions]="{standalone: true}" required /><br />
+      <p-floatLabel>
+        <input pInputText type="email" id="txtEmail" name="email" [(ngModel)]="model.email" [ngModelOptions]="{standalone: true}" required /><br />
+        <label for="txtEmail">Email </label>
+      </p-floatLabel>
 
-      <label for="rdoGender">Gender :</label>
+      <label id="rdolGender" for="rdoGender">Gender </label><br />
 
-      <input type="radio" id="rdoGender" name="gender" [(ngModel)]="model.gender"[ngModelOptions]="{standalone: true}" value="Male">
+      <input type="radio" id="rdoGender" name="gender" [(ngModel)]="model.gender" [ngModelOptions]="{standalone: true}" value="Male">
       Male
-      <input type="radio" id="rdoGender" name="gender" [(ngModel)]="model.gender"[ngModelOptions]="{standalone: true}" value="Female">
+      <input type="radio" id="rdoGender" name="gender" [(ngModel)]="model.gender" [ngModelOptions]="{standalone: true}" value="Female">
       Female
       <br />
-
-      <label for="chkActive">Active :</label>
-      <input type="checkbox" id="chkActive" name="isActive" [(ngModel)]="model.isActive" [ngModelOptions]="{standalone: true}" />
+      <p-checkbox [(ngModel)]="model.isActive"
+                  [binary]="true"
+                  inputId="chkActive"
+                  [ngModelOptions]="{standalone: true}"
+                  id="chkActive" />
+      <label for="chkActive">Active </label>
     </div>
     <div>
+      <p-floatLabel>
+        <p-calendar inputId="txtDOB" name="txtDOB" [(ngModel)]="model.dob" [ngModelOptions]="{standalone: true}" />
+        <label for="txtDOB">Date of Birth</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <p-dropdown [options]="designation"
+                    [(ngModel)]="model.designation"
+                    [ngModelOptions]="{standalone: true}"
+                    optionLabel="dname"
+                    optionValue="dcode"
+                    inputId="float-label"
+                    id="ddlDesigination" name="designation" />
+        <label for="float-label">Desigination</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <textarea rows="1" cols="25"
+                  pInputTextarea
+                  id="txtAddress" name="address"
+                  [(ngModel)]="model.address" [ngModelOptions]="{standalone: true}">
+        </textarea>
+        <label for="txtAddress">Address</label>
+      </p-floatLabel>
 
-      <label for="ddlDesigination">Desigination :</label>
-      <select id="ddlDesigination" name="designation" [(ngModel)]="model.designation" [ngModelOptions]="{standalone: true}"required>
-        <option value="Deveoper">Developer</option>
-        <option value="Manager">Manager</option>
-        <option value="Tester">Tester</option>
-      </select><br />
-
-      <label for="txtDOB">Date of Birth :</label>
-      <input type="date" name="txtDOB" dirname="dob" [(ngModel)]="model.dob"[ngModelOptions]="{standalone: true}" required /><br />
-
-      <label for="txtAddress">Address :</label>
-      <input type="text" id="txtAddress" name="address" [(ngModel)]="model.address" [ngModelOptions]="{standalone: true}"required /><br />
-
-      <label for="txtCity">City :</label>
-      <input type="text" id="txtCity" name="city" [(ngModel)]="model.city" [ngModelOptions]="{standalone: true}"required /><br />
-
-      <label for="txtRegion">Region :</label>
-      <input type="text" id="txtRegion" name="region" [(ngModel)]="model.region" [ngModelOptions]="{standalone: true}"required /><br />
+      <p-floatLabel>
+        <p-dropdown [options]="city"
+                    [(ngModel)]="model.city"
+                    [ngModelOptions]="{standalone: true}"
+                    optionLabel="name"
+                    optionValue="code"
+                    [filter]="true"
+                    filterBy="name"
+                    [showClear]="true"
+                    id="ddlCity"
+                    name="city">
+        </p-dropdown>
+        <label for="ddlCity">Select a City</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <input pInputText type="text" id="txtRegion" name="region" [(ngModel)]="model.region" [ngModelOptions]="{standalone: true}" required /><br />
+        <label for="txtRegion">Region </label>
+      </p-floatLabel>
 
     </div>
   </div>
-    <div id="button-box">
-    <button type="submit">Save</button>
-    <button>Clear</button>
+  <div id="button-box">
+    <div>
+
     </div>
+    <div>
+      <p-button label="Save" type="submit" icon="pi pi-check" size="small" />
+      <p-button label="Cancel" icon="pi pi-times" size="small" />
+    </div>
+  </div>
 </form>
 
 <table class="table table-striped table-bordered">
@@ -85,14 +123,11 @@
       <td>{{ user.city }}</td>
       <td>{{ user.region }}</td>
       <td>{{ user.isActive }}</td>
-
-
-
-
       <td>
         <!-- Edit and Delete buttons -->
-        <button class="btn btn-primary" (click)="editStudent(user)">Edit</button>
-        <button class="btn btn-danger" (click)="deleteStudent(user.id)">Delete</button>
+        <p-button label="Edit" (click)="editStudent(user)" icon="pi pi-times" size="small" />
+        <!--p-button label="Delete" (click)="deleteStudent(user.id)" icon="pi pi-times" size="small" /-->
+
       </td>
     </tr>
   </tbody>

@@ -1,49 +1,70 @@
-*{
-    padding:0px;
-    margin:0px;
-}
-.form-flex{
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    gap:300px;
-    padding:10px;
-    border:solid #808080 1px;
-}
-h3{
-    background-color:#808080;
-    padding:5px;
+* {
+  padding: 0px;
+  margin: 0px;
 }
 
-input{
-padding-inline:10px;
-margin:10px;
+h3 {
+  padding: 20px;
+  margin: 0px;
 }
-select{
-    margin-left:10px;
-    padding-inline:54px;
-    margin-top:10px;
-    margin-bottom:10px
+
+.form-flex {
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+  padding: 10px;
+  padding-top: 30px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px lightgray;
+  background-color: whitesmoke;
 }
-label{
-    width:100px;
-    display:inline-block;
-    text-align:right;
-    margin-right:0px;  
+
+p-floatLabel, p-dropdown, p-calendar, textarea {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
-#button-box{
-    display:flex;
-    justify-content:right;
-    gap:10px;
-    margin:0px;
-    border:solid #808080 1px;
-    padding:10px
+
+input {
+  padding-inline: 0px;
+  padding: 13px;
+  margin: 10px;
+  margin-bottom: 20px;
 }
-button{
-    padding-inline:15px;
-    color:#ffffff;
-    background-color:#0094ff;
+p-dropdown, p-calendar {
+  padding: 10px;
+  margin-bottom: 10px;
+
 }
+textarea {
+  margin: 10px;
+  padding: 10px;
+  margin-top:-0px;
+}
+#rdolGender {
+  margin-left: 20px;
+}
+
+p-floatLabel label {
+  width: 100px;
+  display: inline-block;
+  text-align: left;
+  margin: -7px 0px 20px 10px;
+  font-size: 15px;
+}
+
+#button-box {
+  display: flex;
+  justify-content: space-between;
+  padding:30px;
+}
+p-button{
+    padding-inline:10px;
+}
+p-checkbox{
+    margin:0px 20px 0px 10px ;
+}
+
 .table {
   width: 100%;
   margin: 20px 0;
@@ -57,8 +78,8 @@ button{
   }
 
   .table thead th {
-    background-color: #343a40;
-    color: white;
+    background-color: #ffffff;
+    color: black;
   }
 
   .table tbody tr:nth-child(odd) {

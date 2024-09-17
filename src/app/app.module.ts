@@ -6,6 +6,15 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -13,10 +22,19 @@ import { FormsModule } from '@angular/forms';
     EmployeeComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FloatLabelModule,
+    InputTextModule,
+    ButtonModule,
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule,
+    ButtonModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [EmployeeComponent]
